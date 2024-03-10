@@ -1,12 +1,19 @@
-import { useState } from 'react';
-import './App.css';
+import General from './components/General';
+import Education from './components/Education';
+import Professional from './components/Professional';
 
 function App() {
-  useState();
-
   return (
     <>
-      <h1></h1>
+      <section>
+        <General />
+      </section>
+      <section>
+        <Education />
+      </section>
+      <section>
+        <Professional />
+      </section>
     </>
   );
 }
