@@ -14,14 +14,6 @@ export default function Education() {
     },
   ]);
 
-  let count = 0;
-
-  degrees.forEach((degree) => {
-    while (degree.id === count) {
-      count += 1;
-    }
-  });
-
   function editToggle() {
     setIsEdit(!isEdit);
   }
@@ -40,6 +32,14 @@ export default function Education() {
   }
 
   function addDegree() {
+    let count = 0;
+
+    degrees.forEach((degree) => {
+      while (degree.id === count) {
+        count += 1;
+      }
+    });
+
     setDegrees([
       ...degrees,
       {
@@ -90,7 +90,9 @@ export default function Education() {
             </button>
           </div>
         ))}
-        <button onClick={addDegree}>Add Degree</button>
+        <button type='button' onClick={addDegree}>
+          Add Degree
+        </button>
         <button type='submit'>Submit</button>
       </form>
     );

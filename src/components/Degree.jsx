@@ -24,6 +24,7 @@ export default function Degree({
         ? document.getElementById(`dissertation-${degreeId}`).value
         : null,
     };
+
     getInfo(newDegree);
   }
 
@@ -106,7 +107,7 @@ export default function Degree({
         {isDoctor ? dissertationInput : null}
       </>
     );
-  } else {
+  } else
     return (
       <div className='degree'>
         <p className='degree-and-field'>
@@ -117,5 +118,4 @@ export default function Degree({
         {isDoctor ? dissertationText : null}
       </div>
     );
-  }
 }
