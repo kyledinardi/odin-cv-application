@@ -1,0 +1,25 @@
+#root {
+  font-family: 'Times New Roman', Times, serif;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  justify-items: center;
+  gap: 50px;
+}
+
+textarea {
+  font-family: 'Times New Roman', Times, serif;
+  resize: none;
+  font-size: 1rem;
+}
+
+.optional {
+  font-size: 0.8rem;
+  color: dimgray
+}
+
+.standard-input {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px
+}

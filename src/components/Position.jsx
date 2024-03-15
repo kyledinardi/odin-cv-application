@@ -34,7 +34,7 @@ export default function Position({
   if (isEdit) {
     return (
       <>
-        <div className='position-title'>
+        <div className='standard-input'>
           <label htmlFor={`position-${positionId}`}>Position Title</label>
           <input
             type='text'
@@ -44,8 +44,6 @@ export default function Position({
             onChange={onInfoChange}
             required
           />
-        </div>
-        <div className='dates'>
           <label htmlFor={`dates-${positionId}`}>Start and End Years</label>
           <input
             type='text'
@@ -55,8 +53,6 @@ export default function Position({
             onChange={onInfoChange}
             required
           />
-        </div>
-        <div className='company'>
           <label htmlFor={`company-${positionId}`}>Company</label>
           <input
             type='text'
@@ -66,8 +62,6 @@ export default function Position({
             onChange={onInfoChange}
             required
           />
-        </div>
-        <div className='location'>
           <label htmlFor={`location-${positionId}`}>
             Location <span className='optional'>&#40;optional&#41;</span>
           </label>

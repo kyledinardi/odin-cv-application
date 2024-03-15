@@ -34,17 +34,17 @@ export default function Degree({
   }
 
   const dissertationInput = (
-    <div className='dissertation'>
+    <>
       <label htmlFor={`dissertation-${degreeId}`}>Dissertation Title</label>
-      <input
-        type='text'
+      <textarea
         name='dissertation'
         id={`dissertation-${degreeId}`}
+        rows='5'
         value={dissertation || ''}
         onChange={onInfoChange}
         required
       />
-    </div>
+    </>
   );
 
   const dissertationText = (
@@ -56,7 +56,7 @@ export default function Degree({
   if (isEdit) {
     return (
       <>
-        <div className='degree-type'>
+        <div className='standard-input'>
           <label htmlFor={`degree-${degreeId}`}>Degree</label>
           <select
             name='degree'
@@ -70,8 +70,6 @@ export default function Degree({
             <option value="Master's">Master&apos;s</option>
             <option value='Doctorate'>Doctorate</option>
           </select>
-        </div>
-        <div className='field'>
           <label htmlFor={`field-${degreeId}`}>Field of Study</label>
           <input
             type='text'
@@ -81,8 +79,6 @@ export default function Degree({
             onChange={onInfoChange}
             required
           />
-        </div>
-        <div className='date'>
           <label htmlFor={`date-${degreeId}`}>End Date</label>
           <input
             type='text'
@@ -92,8 +88,6 @@ export default function Degree({
             onChange={onInfoChange}
             required
           />
-        </div>
-        <div className='school'>
           <label htmlFor={`school-${degreeId}`}>School Name</label>
           <input
             type='text'
@@ -103,8 +97,8 @@ export default function Degree({
             onChange={onInfoChange}
             required
           />
+          {isDoctor ? dissertationInput : null}
         </div>
-        {isDoctor ? dissertationInput : null}
       </>
     );
   } else

@@ -29,7 +29,7 @@ export default function General() {
     return (
       <>
         <form className='general' onSubmit={handleSubmit}>
-          <div className='name'>
+          <div className='standard-input'>
             <label htmlFor='name'>Full Name</label>
             <input
               type='text'
@@ -38,8 +38,6 @@ export default function General() {
               defaultValue={info.name}
               required
             />
-          </div>
-          <div className='address'>
             <label htmlFor='address'>Address</label>
             <input
               type='text'
@@ -48,8 +46,6 @@ export default function General() {
               defaultValue={info.address}
               required
             />
-          </div>
-          <div className='phone'>
             <label htmlFor='phone'>Phone Number</label>
             <input
               type='tel'
@@ -58,8 +54,6 @@ export default function General() {
               defaultValue={info.phone}
               required
             />
-          </div>
-          <div className='email'>
             <label htmlFor='email'>Email</label>
             <input
               type='email'
