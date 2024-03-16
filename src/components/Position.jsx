@@ -73,32 +73,36 @@ export default function Position({
             onChange={onInfoChange}
           />
         </div>
-        <label>Duties</label>
-        <ul className='duties'>
-          {duties.map((duty) => (
-            <li className='duty' key={duty.id}>
-              <input
-                type='text'
-                value={duty.name}
-                className='duty-input'
-                id={duty.id}
-                onChange={onInfoChange}
-              />
-              <button type='button' data-id={duty.id} onClick={removeDuty}>
-                Remove Duty
-              </button>
-            </li>
-          ))}
-        </ul>
-        <button type='button' onClick={addDuty}>
-          Add Duty
-        </button>
+        <div className='duties'>
+          <label>Duties</label>
+          <ul>
+            {duties.map((duty) => (
+              <li className='duty' key={duty.id}>
+                <textarea
+                  id={duty.id}
+                  value={duty.name}
+                  className='duty-input'
+                  onChange={onInfoChange}
+                  rows='5'
+                ></textarea>
+                <div className='remove-duty'>
+                  <button type='button' data-id={duty.id} onClick={removeDuty}>
+                    Remove Duty
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <button type='button' className='add-duty' onClick={addDuty}>
+            Add Duty
+          </button>
+        </div>
       </>
     );
   } else
     return (
       <div className='position'>
-        <p className='position-title'>{position}</p>
+        <p className='position-title larger'>{position}</p>
         <p className='date'>{dates}</p>
         <p className='company'>
           {company}

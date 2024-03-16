@@ -7,6 +7,7 @@ export default function Degree({
   field,
   date,
   school,
+  schoolCity,
   dissertation,
   getInfo,
 }) {
@@ -19,6 +20,7 @@ export default function Degree({
       field: document.getElementById(`field-${degreeId}`).value,
       date: document.getElementById(`date-${degreeId}`).value,
       school: document.getElementById(`school-${degreeId}`).value,
+      schoolCity: document.getElementById(`school-city-${degreeId}`).value,
 
       dissertation: isDoctor
         ? document.getElementById(`dissertation-${degreeId}`).value
@@ -62,9 +64,10 @@ export default function Degree({
             name='degree'
             id={`degree-${degreeId}`}
             onChange={handleDegreeChange}
+            value={degree}
             required
           >
-            <option value={degree}></option>
+            <option value=''></option>
             <option value="Associate's">Associate&apos;s</option>
             <option value="Bachelor's">Bachelor&apos;s</option>
             <option value="Master's">Master&apos;s</option>
@@ -88,7 +91,7 @@ export default function Degree({
             onChange={onInfoChange}
             required
           />
-          <label htmlFor={`school-${degreeId}`}>School Name</label>
+          <label htmlFor={`school-${degreeId}`}>School</label>
           <input
             type='text'
             name='school'
@@ -97,6 +100,16 @@ export default function Degree({
             onChange={onInfoChange}
             required
           />
+          <label htmlFor={`school-city-${degreeId}`}>
+            Location <span className='optional'>&#40;optional&#41;</span>
+          </label>
+          <input
+            type='text'
+            name='school-city'
+            id={`school-city-${degreeId}`}
+            value={schoolCity}
+            onChange={onInfoChange}
+          />
           {isDoctor ? dissertationInput : null}
         </div>
       </>
@@ -104,11 +117,14 @@ export default function Degree({
   } else
     return (
       <div className='degree'>
-        <p className='degree-and-field'>
+        <p  className='degree-and-field larger'>
           {degree} in {field}
         </p>
         <p className='date'>{date}</p>
-        <p className='school'>{school}</p>
+        <p className='school'>
+          {school}
+          {schoolCity ? ', ' + schoolCity : null}
+        </p>
         {isDoctor ? dissertationText : null}
       </div>
     );

@@ -102,7 +102,7 @@ export default function Professional() {
 
   if (isEdit) {
     return (
-      <form className='professional' onSubmit={handleSubmit}>
+      <form className='professional-editing' onSubmit={handleSubmit}>
         {positions.map((position) => (
           <div className='position' id={position.id} key={position.id}>
             <Position
@@ -117,15 +117,17 @@ export default function Professional() {
               addDuty={() => addDuty(position)}
               removeDuty={(e) => removeDuty(position, e)}
             />
-            <button type='button' onClick={removePosition}>
+            <button type='button' className='remove' onClick={removePosition}>
               Remove Position
             </button>
           </div>
         ))}
-        <button type='button' onClick={addPosition}>
-          Add Position
-        </button>
-        <button type='submit'>Submit</button>
+        <div className='bottom-buttons'>
+          <button type='button' onClick={addPosition}>
+            Add Position
+          </button>
+          <button type='submit'>Submit</button>
+        </div>
       </form>
     );
   } else

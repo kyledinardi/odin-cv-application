@@ -10,6 +10,7 @@ export default function Education() {
       field: '',
       date: '',
       school: '',
+      schoolCity: '',
       dissertation: null,
     },
   ]);
@@ -48,6 +49,7 @@ export default function Education() {
         field: '',
         date: '',
         school: '',
+        schoolCity: '',
         dissertation: null,
       },
     ]);
@@ -62,6 +64,7 @@ export default function Education() {
           field: '',
           date: '',
           school: '',
+          schoolCity: '',
           dissertation: null,
         },
       ]);
@@ -82,23 +85,30 @@ export default function Education() {
               field={degree.field}
               date={degree.date}
               school={degree.school}
+              schoolCity={degree.schoolCity}
               dissertation={degree.dissertation}
               getInfo={handleInfo}
             />
-            <button type='button' onClick={() => removeDegree(degree.id)}>
+            <button
+              type='button'
+              className='remove'
+              onClick={() => removeDegree(degree.id)}
+            >
               Remove Degree
             </button>
           </div>
         ))}
-        <button type='button' onClick={addDegree}>
-          Add Degree
-        </button>
-        <button type='submit'>Submit</button>
+        <div className="bottom-buttons">
+          <button type='button' onClick={addDegree}>
+            Add Degree
+          </button>
+          <button type='submit'>Submit</button>
+        </div>
       </form>
     );
   } else
     return (
-      <div className='education'>
+      <div className='education-content'>
         {degrees.map((degree) => (
           <Degree
             isEdit={isEdit}
@@ -108,6 +118,7 @@ export default function Education() {
             field={degree.field}
             date={degree.date}
             school={degree.school}
+            schoolCity={degree.schoolCity}
             dissertation={degree.dissertation}
           />
         ))}

@@ -1,10 +1,27 @@
 #root {
   font-family: 'Times New Roman', Times, serif;
-  max-width: 1200px;
   margin: auto;
   display: grid;
   justify-items: center;
   gap: 50px;
+}
+
+section {
+  border: 1px dimgray solid;
+  padding: 30px;
+  border-radius: 30px;
+  width: 320px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.standard-input {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 10px;
 }
 
 textarea {
@@ -15,11 +32,56 @@ textarea {
 
 .optional {
   font-size: 0.8rem;
-  color: dimgray
+  color: dimgray;
 }
 
-.standard-input {
+.general-submit {
+  margin-top: 20px;
   display: grid;
-  grid-template-columns: 130px 1fr;
-  gap: 10px
+  justify-content: center;
+}
+
+.remove,
+.add-duty {
+  margin: 20px;
+  display: block;
+}
+
+.bottom-buttons {
+  margin-top: 20px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+}
+
+.duty-input {
+  width: 250px;
+
+}
+
+.duties {
+  margin-top: 20px;
+}
+
+.duty {
+  margin: 20px 0;
+}
+
+.professional-editing ul {
+  display: grid;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+}
+
+.professional ul {
+  width: max-content;
+}
+
+.general-content, .education-content, .professional {
+  text-align: center;
+}
+
+.larger {
+  font-size: 1.2rem;
 }

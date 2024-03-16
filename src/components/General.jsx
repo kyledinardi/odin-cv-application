@@ -5,6 +5,7 @@ export default function General() {
   const [info, setInfo] = useState({
     name: '',
     address: '',
+    city: '',
     phone: '',
     email: '',
   });
@@ -20,6 +21,7 @@ export default function General() {
       ...info,
       name: document.getElementById('name').value,
       address: document.getElementById('address').value,
+      city: document.getElementById('city').value,
       phone: document.getElementById('phone').value,
       email: document.getElementById('email').value,
     });
@@ -46,6 +48,14 @@ export default function General() {
               defaultValue={info.address}
               required
             />
+            <label htmlFor='city'>City, State</label>
+            <input
+              type='text'
+              name='city'
+              id='city'
+              defaultValue={info.city}
+              required
+            />
             <label htmlFor='phone'>Phone Number</label>
             <input
               type='tel'
@@ -63,19 +73,23 @@ export default function General() {
               required
             />
           </div>
-          <button type='submit'>Submit</button>
+          <div className='general-submit'>
+            <button type='submit'>Submit</button>
+          </div>
         </form>
       </>
     );
   } else {
     return (
-      <>
+      <div className='general-content'>
         <h1>{info.name}</h1>
-        <h3>{info.address}</h3>
-        <h3>{info.phone}</h3>
-        <h3>{info.email}</h3>
+        <p className='larger'>
+          {info.address}, {info.city}
+        </p>
+        <p className='larger'>{info.phone}</p>
+        <p className='larger'>{info.email}</p>
         <button onClick={editToggle}>Edit</button>
-      </>
+      </div>
     );
   }
 }
