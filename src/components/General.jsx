@@ -79,17 +79,17 @@ export default function General() {
         </form>
       </>
     );
-  } else {
-    return (
-      <div className='general-content'>
-        <h1>{info.name}</h1>
-        <p className='larger'>
-          {info.address}, {info.city}
-        </p>
-        <p className='larger'>{info.phone}</p>
-        <p className='larger'>{info.email}</p>
-        <button onClick={editToggle}>Edit</button>
-      </div>
-    );
   }
+
+  return (
+    <div className='general-content'>
+      <h1>{info.name}</h1>
+      <p className='larger'>
+        {info.address}, {info.city}
+      </p>
+      <p className='larger'>{info.phone}</p>
+      <p className='larger'>{info.email}</p>
+      <button onClick={editToggle}>Edit</button>
+    </div>
+  );
 }

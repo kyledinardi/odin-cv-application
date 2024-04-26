@@ -114,18 +114,19 @@ export default function Degree({
         </div>
       </>
     );
-  } else
-    return (
-      <div className='degree'>
-        <p  className='degree-and-field larger'>
-          {degree} in {field}
-        </p>
-        <p className='date'>{date}</p>
-        <p className='school'>
-          {school}
-          {schoolCity ? ', ' + schoolCity : null}
-        </p>
-        {isDoctor ? dissertationText : null}
-      </div>
-    );
+  }
+  
+  return (
+    <div className='degree'>
+      <p className='degree-and-field larger'>
+        {degree} in {field}
+      </p>
+      <p className='date'>{date}</p>
+      <p className='school'>
+        {school}
+        {schoolCity ? `, ${  schoolCity}` : null}
+      </p>
+      {isDoctor ? dissertationText : null}
+    </div>
+  );
 }

@@ -15,9 +15,10 @@ export default function Position({
       document.querySelectorAll(`[id='${positionId}'] .duty-input`),
     );
 
-    const dutyListValues = dutyList.map((dutyInput) => {
-      return { name: dutyInput.value, id: dutyInput.id };
-    });
+    const dutyListValues = dutyList.map((dutyInput) => ({
+      name: dutyInput.value,
+      id: dutyInput.id,
+    }));
 
     const newPosition = {
       id: positionId,
@@ -99,22 +100,22 @@ export default function Position({
         </div>
       </>
     );
-  } else
-    return (
-      <div className='position'>
-        <p className='position-title larger'>{position}</p>
-        <p className='date'>{dates}</p>
-        <p className='company'>
-          {company}
-          {location ? ', ' + location : null}
-        </p>
-        <ul className='duties'>
-          {duties.map((duty, index) => (
-            <li className='duty' key={duty.id}>
-              {duties[index].name}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
+  }
+  return (
+    <div className='position'>
+      <p className='position-title larger'>{position}</p>
+      <p className='date'>{dates}</p>
+      <p className='company'>
+        {company}
+        {location ? `, ${location}` : null}
+      </p>
+      <ul className='duties'>
+        {duties.map((duty, index) => (
+          <li className='duty' key={duty.id}>
+            {duties[index].name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

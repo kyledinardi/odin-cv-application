@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Degree from './Degree';
+import Degree from './Degree.jsx';
 
 export default function Education() {
   const [isEdit, setIsEdit] = useState(true);
@@ -25,9 +25,9 @@ export default function Education() {
   }
 
   function handleInfo(newDegree) {
-    const newDegreeList = degrees.map((degree) => {
-      return degree.id === newDegree.id ? newDegree : degree;
-    });
+    const newDegreeList = degrees.map((degree) =>
+      degree.id === newDegree.id ? newDegree : degree,
+    );
 
     setDegrees(newDegreeList);
   }
@@ -98,7 +98,7 @@ export default function Education() {
             </button>
           </div>
         ))}
-        <div className="bottom-buttons">
+        <div className='bottom-buttons'>
           <button type='button' onClick={addDegree}>
             Add Degree
           </button>
@@ -106,23 +106,24 @@ export default function Education() {
         </div>
       </form>
     );
-  } else
-    return (
-      <div className='education-content'>
-        {degrees.map((degree) => (
-          <Degree
-            isEdit={isEdit}
-            key={degree.id}
-            degreeId={degree.id}
-            degree={degree.degree}
-            field={degree.field}
-            date={degree.date}
-            school={degree.school}
-            schoolCity={degree.schoolCity}
-            dissertation={degree.dissertation}
-          />
-        ))}
-        <button onClick={editToggle}>Edit</button>
-      </div>
-    );
+  }
+
+  return (
+    <div className='education-content'>
+      {degrees.map((degree) => (
+        <Degree
+          isEdit={isEdit}
+          key={degree.id}
+          degreeId={degree.id}
+          degree={degree.degree}
+          field={degree.field}
+          date={degree.date}
+          school={degree.school}
+          schoolCity={degree.schoolCity}
+          dissertation={degree.dissertation}
+        />
+      ))}
+      <button onClick={editToggle}>Edit</button>
+    </div>
+  );
 }

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Position from './Position';
+import Position from './Position.jsx';
 
 export default function Professional() {
   const [isEdit, setIsEdit] = useState(true);
@@ -24,9 +24,9 @@ export default function Professional() {
   }
 
   function handleInfo(newPosition) {
-    const newPositionList = positions.map((position) => {
-      return position.id === newPosition.id ? newPosition : position;
-    });
+    const newPositionList = positions.map((position) =>
+      position.id === newPosition.id ? newPosition : position,
+    );
 
     setPositions(newPositionList);
   }
@@ -84,17 +84,19 @@ export default function Professional() {
 
   function removeDuty(positionToBeChanged, e) {
     const newPositions = positions.map((position) => {
+      const newPosition = { ...position };
+
       if (positionToBeChanged.id === position.id) {
         if (position.duties.length === 1) {
-          position.duties = [{ name: '', id: crypto.randomUUID() }];
+          newPosition.duties = [{ name: '', id: crypto.randomUUID() }];
         } else {
-          position.duties = position.duties.filter(
+          newPosition.duties = position.duties.filter(
             (duty) => duty.id !== e.target.dataset.id,
           );
         }
       }
 
-      return position;
+      return newPosition;
     });
 
     setPositions(newPositions);
@@ -130,22 +132,22 @@ export default function Professional() {
         </div>
       </form>
     );
-  } else
-    return (
-      <div className='professional'>
-        {positions.map((position) => (
-          <Position
-            isEdit={isEdit}
-            key={position.id}
-            positionId={position.id}
-            position={position.position}
-            dates={position.dates}
-            company={position.company}
-            location={position.location}
-            duties={position.duties}
-          />
-        ))}
-        <button onClick={editToggle}>Edit</button>
-      </div>
-    );
+  }
+  return (
+    <div className='professional'>
+      {positions.map((position) => (
+        <Position
+          isEdit={isEdit}
+          key={position.id}
+          positionId={position.id}
+          position={position.position}
+          dates={position.dates}
+          company={position.company}
+          location={position.location}
+          duties={position.duties}
+        />
+      ))}
+      <button onClick={editToggle}>Edit</button>
+    </div>
+  );
 }
